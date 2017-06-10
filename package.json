@@ -1,0 +1,26 @@
+{
+  "name": "jwhite",
+  "version": "1.0.0",
+  "description": "Packages needed:",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-webserver": "^0.9.1",
+    "yargs": "^8.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dukehammer/projects.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dukehammer/projects/issues"
+  },
+  "homepage": "https://github.com/dukehammer/projects#readme"
+}

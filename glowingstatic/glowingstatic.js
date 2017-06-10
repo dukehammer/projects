@@ -5,7 +5,7 @@ var particles = [];
 var numParticles = 2500;
 var radius = 10;
 var prob = .4;
-var popFrequency = 150;
+var popFrequency = 10;
 var disco = false;
 var r = 255; var g = 125; var b = 0;   // Orange
 // var r = 255; var g = 255; var b = 255; // White
