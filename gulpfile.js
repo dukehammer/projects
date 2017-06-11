@@ -3,13 +3,15 @@ var gulp = require('gulp'),
 
 var argv = require('yargs').argv;
 
+console.info('file: ' + argv.file);
+
 gulp.task('webserver', function () {
-	gulp.src(argv.file)
+	gulp.src('.')
 		.pipe(webserver({
 			livereload: true,
-			fallback: '*.html',
+			fallback: 'index.html',
 			port:8080,
 			directoryListing:false,
-			open: '/' + argv.file + '.html'
+			open: true // '/' + argv.file + '.html'
 		}));
 });
