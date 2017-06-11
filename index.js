@@ -1,0 +1,1 @@
+document.getElementById("baseurl").href = window.location.href;
