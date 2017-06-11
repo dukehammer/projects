@@ -13,7 +13,7 @@
 		{
 			"taskName": "webserver",
 			"isBuildCommand": true,
-			"showOutput": "always"
+			"showOutput": "never"
 		}
 	]
 }
