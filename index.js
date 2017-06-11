@@ -1,1 +1,4 @@
-document.getElementById("baseurl").href = window.location.href;
+var newBase = document.createElement("base");
+newBase.setAttribute("href", document.location.hostname);
+newBase.setAttribute("target", "_blank");
+document.getElementsByTagName("head")[0].appendChild(newBase);
