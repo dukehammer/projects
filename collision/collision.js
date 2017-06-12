@@ -4,7 +4,7 @@ var ctx = canvas.getContext("2d");
 var debugOutput = document.getElementById("debugOutput");
 
 // Set constants and variables
-var W = 1500; var H = 600;
+var W = window.innerWidth; var H = window.innerHeight;
 var showCollisionColors = false;
 var showVelocityIndicators = false;
 var velocityIndicatorMag = 50;
@@ -228,7 +228,11 @@ function particle(x, y, vx, vy, ax, ay, mass, color) {
 
 particle.prototype.draw = function (ctx) {
 
-	ctx.fillStyle = (!showCollisionColors ? this.color : (this.isCollided ? "red" : (this.isBounding ? "yellow" : "white")));
+	var grd = ctx.createRadialGradient(this.position.x + this.radius/2, this.position.y + this.radius/2, this.radius/2, this.position.x - this.radius/2, this.position.y - this.radius/2, this.radius * 2);
+	//ctx.fillStyle = (!showCollisionColors ? this.color : (this.isCollided ? "red" : (this.isBounding ? "yellow" : "white")));
+	ctx.fillStyle = grd;
+	grd.addColorStop(0, (!showCollisionColors ? this.color : (this.isCollided ? "red" : (this.isBounding ? "yellow" : "white"))));
+	grd.addColorStop(.75, "black");
 	ctx.beginPath();
 	ctx.arc(this.position.x, this.position.y, this.radius, 0, 2 * Math.PI, false);
 	ctx.fill();

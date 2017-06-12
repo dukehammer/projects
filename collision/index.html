@@ -3,12 +3,22 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Elastic Collision</title>
+		<link rel="stylesheet" href="styles.css">
 	</head>
-	<body style="background-color:#000000">
-		<button onClick="changeAutoRun()">Auto-Run</button>
-		<button onClick="main()">Step</button>
-		<div id="debugOutput"></div>
+	<body>
 		<canvas id="canvas" width="1500" height="600"></canvas>
+		<div id="menu" class="menu">
+			<button onClick="reset()">Reset</button>
+			<button onClick="changeAutoRun()">Auto-Run</button>
+			<button onClick="main()">Step</button>
+			<button onclick="changeCollisionColors()">Collision Colors</button>
+			<button onclick="changeVelocityIndicators()">Velocity Indicator</button>
+			<button onclick="changeEdgeWrap()">Edge Wrap</button>
+			<button onclick="changeCollisionType()">Collision Type</button>
+			<button onclick="changeGravity()">Gravity</button>
+			<button onclick="changeRadiusDisplay()">Radius Display</button>
+		</div>
+		<div id="debugOutput"></div>
 	</body>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>

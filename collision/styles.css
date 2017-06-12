@@ -1,0 +1,10 @@
+body {
+	background-color:#000000;
+}
+
+.menu {
+	border: 1px solid #d4d4d4;
+	color: #ffffff;
+	padding: 10px;
+	border-radius: 4px;
+}
