@@ -1,10 +1,38 @@
-body {
+html, body {
 	background-color:#000000;
+	margin: 0px;
+	overflow: hidden;
+}
+
+canvas {
+	width: 1300;
+	height: 700;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	align-content: left;
+}
+
+button, input {
+	width: 120px;
+}
+
+label, button, input {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 11px;
+	font-variant: small-caps;
+	margin: 2px;
 }
 
 .menu {
 	border: 1px solid #d4d4d4;
 	color: #ffffff;
-	padding: 10px;
+	padding: 0px;
 	border-radius: 4px;
+	float: right;
+	width: 128px;
+	height: 98vh;
 }

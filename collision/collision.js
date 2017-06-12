@@ -2,9 +2,12 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 var debugOutput = document.getElementById("debugOutput");
+var menu = document.getElementById("menu");
 
 // Set constants and variables
-var W = window.innerWidth; var H = window.innerHeight;
+var W = window.innerWidth - menu.offsetWidth - 20; var H = window.innerHeight - 20;
+canvas.width = W;
+canvas.height = H;
 var showCollisionColors = false;
 var showVelocityIndicators = false;
 var velocityIndicatorMag = 50;
@@ -17,14 +20,20 @@ var logarithmicRadius = false;
 var applyGravity = false;
 var particles = [];
 var debugLog = "";
-var gravConst = 6.673 * Math.pow(10, -.2);
-var maxSpeed = 5;
+var gravConst = 6.673 * Math.pow(10, -.9);
+document.getElementById("gravityCoef").value = -.9;
+var maxSpeed = 4;
+var scale = 3;
 
 // Create particles
 // createTwo();
 createRandom(10);
 
-if (autoRun) { running = setInterval(main, 1); }
+if (autoRun) { running = setInterval(main, 2); }
+
+function reset() {
+	particles.length = 0;
+}
 
 function changeAutoRun () {
 
@@ -36,6 +45,44 @@ function changeAutoRun () {
 	else {
 		autoRun = true;
 		running = setInterval(main, 1);
+	}
+}
+
+function changeCollisionColors() {
+
+	showCollisionColors = !showCollisionColors;
+}
+
+function changeVelocityIndicators() {
+
+	showVelocityIndicators = !showVelocityIndicators;
+}
+
+function changeEdgeWrap() {
+
+	edgeWrap = !edgeWrap;
+}
+
+function changeCollisionType() {
+
+	elastic = !elastic;
+}
+
+function changeGravity() {
+
+	applyGravity = !applyGravity;
+}
+
+function changeRadiusDisplay() {
+
+	logarithmicRadius = !logarithmicRadius;
+}
+
+function changeGravityCoef() {
+
+	coef = parseFloat(document.getElementById("gravityCoef").value);
+	if (coef != NaN) {
+		gravConst = 6.673 * Math.pow(10, coef);
 	}
 }
 
@@ -119,12 +166,12 @@ function calculateRadius(p) {
 
 	if (!logarithmicRadius) {
 
-		return Math.pow(3 * (p.mass / (4 * Math.PI)), 1 / 3);
+		return Math.pow(3 * (p.mass / (4 * Math.PI)), 1 / 3) / scale;
 	}
 
 	else {
 
-		return Math.log(p.mass);
+		return Math.log(p.mass) / scale;
 	}
 }
 
@@ -386,8 +433,8 @@ particle.prototype.gravitationalForce = function (other) {
 	var collisionAngle = Math.atan2((this.position.y - other.position.y), (this.position.x - other.position.x));
 	var distance = this.distanceTo(other);
 
-	var xForce = gravConst * (this.mass * other.mass) / Math.max(distance * distance, .00001) * Math.cos(collisionAngle);
-	var yForce = gravConst * (this.mass * other.mass) / Math.max(distance * distance, .00001) * Math.sin(collisionAngle);
+	var xForce = gravConst * (this.mass * other.mass) / Math.max(distance * distance, .1) * Math.cos(collisionAngle);
+	var yForce = gravConst * (this.mass * other.mass) / Math.max(distance * distance, .1) * Math.sin(collisionAngle);
 
 	this.acceleration.x -= xForce / this.mass;
 	this.acceleration.y -= yForce / this.mass;
@@ -418,7 +465,7 @@ vector.prototype.squared = function () {
 
 vector.prototype.magnitude = function () {
 
-	return Math.sqrt( this.squared() );
+	return Math.sqrt(this.squared() );
 }
 
 vector.prototype.angle = function () {

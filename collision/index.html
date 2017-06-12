@@ -6,18 +6,21 @@
 		<link rel="stylesheet" href="styles.css">
 	</head>
 	<body>
-		<canvas id="canvas" width="1500" height="600"></canvas>
 		<div id="menu" class="menu">
-			<button onClick="reset()">Reset</button>
-			<button onClick="changeAutoRun()">Auto-Run</button>
-			<button onClick="main()">Step</button>
-			<button onclick="changeCollisionColors()">Collision Colors</button>
-			<button onclick="changeVelocityIndicators()">Velocity Indicator</button>
-			<button onclick="changeEdgeWrap()">Edge Wrap</button>
-			<button onclick="changeCollisionType()">Collision Type</button>
-			<button onclick="changeGravity()">Gravity</button>
-			<button onclick="changeRadiusDisplay()">Radius Display</button>
+			<ul>
+				<li><button onClick="reset()">Reset</button></li>
+				<li><button onClick="changeAutoRun()">Auto-Run</button></li>
+				<li><button onClick="main()">Step</button></li>
+				<li><button onclick="changeCollisionColors()">Collision Colors</button></li>
+				<li><button onclick="changeVelocityIndicators()">Velocity Indicator</button></li>
+				<li><button onclick="changeEdgeWrap()">Edge Wrap</button></li>
+				<li><button onclick="changeCollisionType()">Collision Type</button></li>
+				<li><button onclick="changeGravity()">Gravity</button></li>
+				<li><button onclick="changeRadiusDisplay()">Radius Display</button></li>
+				<li><label for="gravityCoef">Gravity Coef.</label><input id="gravityCoef" onchange="changeGravityCoef()" name="Gravity"></input></li>
+			</ul>
 		</div>
+		<canvas id="canvas"></canvas>
 		<div id="debugOutput"></div>
 	</body>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
