@@ -8,7 +8,7 @@ var createScene = function () {
 	// Now create a basic Babylon Scene object
 	var scene = new BABYLON.Scene(engine);
 	// Change the scene background color to green.
-	scene.clearColor = new BABYLON.Color3(0, 0, 0);
+	scene.clearColor = new BABYLON.Color3(1, .5, .5);
 	// This creates and positions a free camera
 	var camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 5, -10), scene);
 	// This targets the camera to scene origin
