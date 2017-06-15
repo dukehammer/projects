@@ -7,7 +7,9 @@
 	"args": [
 		"--no-color",
 		"--file",
-		"${fileDirname}"
+		"${fileDirname}",
+		"--root",
+		"${workspaceRootFolderName}"
 	],
 	"tasks": [
 		{

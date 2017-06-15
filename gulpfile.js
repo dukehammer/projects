@@ -1,18 +1,19 @@
 var gulp = require('gulp'),
 	webserver = require('gulp-webserver');
 
+// var argv = require('yargs').argv;
 var file = require('yargs').argv.file;
 
 console.log('file: ' + file);
-console.log('src: ' + '.' + file.slice(file.lastIndexOf('/')) + '/');
+console.log('src: ' + '.' + file.slice(file.lastIndexOf('/')) + '/' + 'index.html');
 
 gulp.task('webserver', function () {
-	gulp.src('.' + file.slice(file.lastIndexOf('/')) + '/')
+	gulp.src('.')
 		.pipe(webserver({
 			livereload: true,
 			fallback: 'index.html',
 			port:8080,
 			directoryListing:false,
-			open: true // '/' + argv.file + '.html'
+			open: '.' + file.slice(file.lastIndexOf('/')) + '/' + 'index.html' // true
 		}));
 });
