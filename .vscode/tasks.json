@@ -7,7 +7,7 @@
 	"args": [
 		"--no-color",
 		"--file",
-		"${fileBasenameNoExtension}"
+		"${fileDirname}"
 	],
 	"tasks": [
 		{

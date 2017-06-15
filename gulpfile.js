@@ -1,12 +1,13 @@
 var gulp = require('gulp'),
 	webserver = require('gulp-webserver');
 
-var argv = require('yargs').argv;
+var file = require('yargs').argv.file;
 
-console.info('file: ' + argv.file);
+console.log('file: ' + file);
+console.log('src: ' + '.' + file.slice(file.lastIndexOf('/')) + '/');
 
 gulp.task('webserver', function () {
-	gulp.src('.')
+	gulp.src('.' + file.slice(file.lastIndexOf('/')) + '/')
 		.pipe(webserver({
 			livereload: true,
 			fallback: 'index.html',
