@@ -12,7 +12,8 @@ gulp.task('webserver', function () {
 		.pipe(webserver({
 			livereload: true,
 			fallback: 'index.html',
-			port:8080,
+			port: 8080,
+			host: '0.0.0.0',
 			directoryListing:false,
 			open: '.' + file.slice(file.lastIndexOf('/')) + '/' + 'index.html' // true
 		}));
